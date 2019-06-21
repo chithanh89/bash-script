@@ -21,7 +21,7 @@ do
           ssh -i $ssh_key $remote_user@$remote_sv_ip "tail -f $opt"
           break
           ;;
-        "$option2")
+        "$option3")
           ssh -i $ssh_key $remote_user@$remote_sv_ip "tail -f $opt"
           break
           ;;
