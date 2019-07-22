@@ -4,12 +4,7 @@ token=""
 jenkins_url=""
 
 PS3='Select an option and press Enter: '
-job1="athena"
-job2="driver-signup"
-job3="newcc-client"
-jobs=("$job1"
-         "$job2"
-         "$job3")
+jobs=("athena" "driver-signup" "newcc-client")
 select job in "${jobs[@]}"
 do
     case $job in
