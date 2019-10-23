@@ -34,7 +34,7 @@ local_result=$(find $BACKUP_DIR -type f -name "*.zip" | sort -n)
 echo "File in local found: $local_result"
 if [ "$local_result = $DATE_TIME.zip" ] || [ "$local_result = $DB_NAME-$DATE_TIME.sql.zip" ]
 then
-  rm "$BACKUP_DIR/$DATE_TIME.zip" && rm "$BACKUP_DIR/$DB_NAME-$DATE_TIME.sql.zip"
+  rm -f "$BACKUP_DIR/$DATE_TIME.zip" && rm -f "$BACKUP_DIR/$DB_NAME-$DATE_TIME.sql.zip"
   echo "Local file has been removed"
 else
   echo "No file to remove"
