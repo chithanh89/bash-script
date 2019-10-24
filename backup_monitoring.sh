@@ -15,7 +15,7 @@ S3BUCKET_ZABBIX="$S3BUCKET/zabbix/sea"
 BACKUP_DIR="/home/thanhho"
 # Log Directory
 LOG_DIR="/var/log/backup_monitoring_$DATE_TIME.log"
-exec &> $LOG_DIR
+exec &>> $LOG_DIR
 # Slack hook url
 SLACK=""
 # Backup Command
