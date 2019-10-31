@@ -7,11 +7,11 @@ do
     case $u in
         *) reply=$REPLY
         rabbitmqctl add_user $u $pass
-        sleep 2
+        sleep 1
         rabbitmqctl set_user_tags $u $tags
-        sleep 2
+        sleep 1
         rabbitmqctl set_permissions -p / $u ".*" ".*" ".*"
-        sleep 2
+        sleep 1
     esac
         rabbitmqctl list_users && rabbitmqctl list_user_permissions $u
 done
