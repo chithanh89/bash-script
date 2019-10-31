@@ -26,7 +26,7 @@ aws s3 cp --quiet "$BACKUP_DIR/$DATE_TIME.zip" s3://$S3BUCKET_PRO/"$DATE_TIME.zi
 mysqldump -h$HOST -u$USER $DB_NAME -p$PASSWORD --single-transaction | zip -q > "$BACKUP_DIR/$DB_NAME-$DATE_TIME.sql.zip"
 aws s3 cp --quiet "$BACKUP_DIR/$DB_NAME-$DATE_TIME.sql.zip" s3://$S3BUCKET_ZABBIX/"$DB_NAME-$DATE_TIME.sql.zip"
 # Check result on S3
-s3_result=$(aws s3 ls s3://$S3BUCKET_PRO/ | grep -e "\.zip$" && aws s3 ls s3://$S3BUCKET_ZABBIX/ | grep -e "\.zip$")
+s3_result=$(aws s3 ls s3://$S3BUCKET_PRO/ | grep -e "$DATE_TIME.zip" && aws s3 ls s3://$S3BUCKET_ZABBIX/ | grep -e "$DB_NAME-$DATE_TIME.sql.zip")
 echo "File is uploaded to S3: $s3_result"
 echo "####################################################################################"
 # Check file on local and remove
