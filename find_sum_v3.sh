@@ -18,7 +18,8 @@ do
     case $f in
         *) reply=$REPLY
         select_folder=$(find $workdir/$version -type d -name "$f")
-        find $select_folder -type f -name "*.md" \( -exec echo {} \; -o -exec true \; \) -exec cat {} \;  > $workdir/sum-$version/$f-sum.txt
+#        find $select_folder -type f -name "*.md" \( -exec echo {} \; -o -exec true \; \) -exec cat {} \;  > $workdir/sum-$version/$f-sum.txt
+        find $select_folder -type f -name "*.md" -print -exec sh -c "cat {};echo"  \; > $workdir/sum-$version/$f-sum.txt
     esac
 done
 
